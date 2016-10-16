@@ -10,7 +10,7 @@ Optimization
 Index Page:
 After making changes the initial score increased to 95/100 for mobile and 97/100 for desktop.
 
-The following changes were made:
+The following changes were made in index.html:
 
 CSS
 Inlined all of the CSS into the head of the document and added the HTML media="print" attribute to the external style sheet link for print styles.
@@ -24,5 +24,9 @@ Resized images that were too large and compressed all images with the Kraken ima
 Files
 Javascript,CSS files were minified using JS minifier and CSS minifier.
 
+The following changes were made in pizza.html:
+
 Optimizing loops:
 Loops were optimized in updatePositions function and on DOMContentLoaded event handler.
+
+Images were optimized.
