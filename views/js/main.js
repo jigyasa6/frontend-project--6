@@ -376,7 +376,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.style.width = "33.33%";
   pizzaContainer.style.height = "325px";
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
-  pizzaImageContainer.classList.add="col-md-6";
+  pizzaImageContainer.style.width="35%";
 
   pizzaImage.src = "images/pizza.png";
   pizzaImage.classList.add("img-responsive");
@@ -384,7 +384,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.appendChild(pizzaImageContainer);
 
 
-  pizzaDescriptionContainer.classList.add="col-md-6";
+  pizzaDescriptionContainer.style.width="65%";
 
   pizzaName = document.createElement("h4");
   pizzaName.innerHTML = randomName();
@@ -469,8 +469,9 @@ var resizePizzas = function(size) {
 };
 
 window.performance.mark("mark_start_generating"); // collect timing data
-var pizzasDiv = document.getElementById("randomPizzas");
+
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
   
   pizzasDiv.appendChild(pizzaElementGenerator(i));
@@ -506,13 +507,16 @@ function updatePositions() {
 
   var items = document.getElementsByClassName('mover');
   var c = document.body.scrollTop / 1250;
- var phase;
-  for (var i = 0; i < items.length; i++) {
-    phase = Math.sin(c + (i % 5));
+  var phase = [ ];
+  for (var i = 0; i < 5; i++) {
+    phase.push(100*Math.sin(c + (i % 5)));
+    
   }
-    for(var i = 0; i < items.length; i++) {
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }
+    for( var i=0,len=items.length;i<len;i++)
+        {
+            items[i].style.left = items[i].basicLeft + phase(i*5) + 'px';
+        }
+    
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
