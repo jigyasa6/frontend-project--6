@@ -514,7 +514,7 @@ function updatePositions() {
   }
     for( var i=0,len=items.length;i<len;i++)
         {
-            items[i].style.left = items[i].basicLeft + phase(i*5) + 'px';
+            items[i].style.left = items[i].basicLeft + 100 * phase[i*5] + 'px';
         }
     
 
