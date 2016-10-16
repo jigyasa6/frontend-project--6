@@ -507,14 +507,14 @@ function updatePositions() {
 
   var items = document.getElementsByClassName('mover');
   var c = document.body.scrollTop / 1250;
-  var phase;
+  var phase = [ ];
   for (var i = 0; i < 5; i++) {
     phase.push(100*Math.sin(c + (i % 5)));
     
   }
     for( var i=0,len=items.length;i<len;i++)
         {
-            items[i].style.left = items[i].basicLeft +phase(i*5) + 'px';
+            items[i].style.left = items[i].basicLeft + phase(i*5) + 'px';
         }
     
 
